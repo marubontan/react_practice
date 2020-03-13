@@ -17,25 +17,23 @@
     align-self: flex-end;
 }
 
-.centerColDesign{
+.centerColDesign {
     width: 60%;
     margin: 0px;
     padding: 0px;
     border-radius: 5px;
     border: 2px solid sandybrown;
-
 }
 
 .withCenter {
     justify-content: center;
 }
 
-.design{
+.design {
     background-color: beige;
     width: 90%;
     margin-left: auto;
     margin-right: auto;
-
 }
 
 .colSize {
