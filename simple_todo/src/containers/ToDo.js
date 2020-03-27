@@ -8,11 +8,20 @@ class ToDo extends Component {
     state = {
         registeredItems: [{content: 'hoge', checked: true}]
     }
+
+    addNewItemHandler = (newItem) => {
+        console.log(this.state);
+        const updatedState = {...this.state};
+        updatedState['registeredItems'].push({...newItem['registeredItem']});
+        this.setState(updatedState);
+        
+    }
+
     render() {
         return (
             <Aux>
                 <h1>ToDo</h1>
-                <NewItem />
+                <NewItem addNewItem={this.addNewItemHandler} />
                 <Items registeredItems={this.state.registeredItems}/>
             </Aux>
         );

@@ -4,8 +4,8 @@ import Item from './Item';
 
 const items = (props) => {
     return (
-        props.registeredItems.map((item) => {
-            return (<Item content={item.content} checked={item.checked} />)
+        props.registeredItems.map((item, i) => {
+            return (<Item key={i} content={item.content} checked={item.checked} />)
         })
     )
 }
