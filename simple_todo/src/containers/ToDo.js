@@ -6,23 +6,48 @@ import Items from '../components/Items';
 
 class ToDo extends Component {
     state = {
-        registeredItems: [{content: 'hoge', checked: true}]
+        registeredItems: [],
+        maxId: 0
     }
 
     addNewItemHandler = (newItem) => {
-        console.log(this.state);
-        const updatedState = {...this.state};
-        updatedState['registeredItems'].push({...newItem['registeredItem']});
+        const updatedState = { ...this.state };
+        updatedState['registeredItems'].push({ ...newItem['registeredItem'] });
+        updatedState['maxId'] = newItem['registeredItem']['id'];
         this.setState(updatedState);
-        
+    }
+
+    deleteItemHandler = (deleteTargetItemId) => {
+        const updatedState = this.state['registeredItems'].filter((item) => {
+            return item['id'] !== deleteTargetItemId
+        });
+
+        this.setState({ registeredItems: updatedState });
+    }
+
+    checkItemHandler = (checkTargetItemId) => {
+        const updatedState = this.state['registeredItems'].map((item) => {
+            if (item.id === checkTargetItemId) {
+                item.checked = true;
+            }
+            return item;
+        });
+        this.setState({ registeredItems: updatedState });
     }
 
     render() {
         return (
             <Aux>
                 <h1>ToDo</h1>
-                <NewItem addNewItem={this.addNewItemHandler} />
-                <Items registeredItems={this.state.registeredItems}/>
+                <NewItem
+                    addNewItem={this.addNewItemHandler}
+                    id={this.state['maxId'] + 1}
+                />
+                <Items
+                    registeredItems={this.state.registeredItems}
+                    deleteItem={this.deleteItemHandler}
+                    checkItem={this.checkItemHandler}
+                />
             </Aux>
         );
     }
