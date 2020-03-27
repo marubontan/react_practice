@@ -1,22 +1,28 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 class NewItem extends Component {
-    state = {registeredItem: null};
+    state = { registeredItem: null };
 
     submitHandler = (event) => {
         event.preventDefault();
         this.props.addNewItem(this.state);
-        
+
     }
 
     changeHandler = (event) => {
-        this.setState({registeredItem:{content: event.target.value, checked: false}})
+        this.setState({
+            registeredItem: {
+                id: this.props['id'],
+                content: event.target.value,
+                checked: false
+            }
+        })
     }
 
-    render (){
+    render() {
         return (
             <form onSubmit={this.submitHandler}>
-                <input type='text' onChange={this.changeHandler}/>
+                <input type='text' onChange={this.changeHandler} />
                 <button>Add Item</button>
             </form>
         );

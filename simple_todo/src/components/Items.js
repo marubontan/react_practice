@@ -3,10 +3,23 @@ import React from 'react';
 import Item from './Item';
 
 const items = (props) => {
+    console.log(props)
     return (
-        props.registeredItems.map((item, i) => {
-            return (<Item key={i} content={item.content} checked={item.checked} />)
-        })
+        <ul>
+            {props.registeredItems.map((item) => {
+                return (
+                    <Item
+                        key={item.id}
+                        id={item.id}
+                        content={item.content}
+                        checked={item.checked}
+                        deleteItem={props.deleteItem}
+                        checkItem={props.checkItem}
+                    />
+                )
+            })
+            }
+        </ul>
     )
 }
 
