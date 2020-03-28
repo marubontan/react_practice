@@ -1,0 +1,25 @@
+.Item{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #E5E8E8 ;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 50px;
+}
+
+.Item .Left{
+    display: flex;
+    font-size: 40px;
+    color: black;
+    word-break: break-all;
+}
+
+.Item .Checked{
+    text-decoration: line-through;
+}
+
+.Item .Right{
+    display: flex;
+}

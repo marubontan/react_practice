@@ -1,11 +1,11 @@
 import React from 'react';
 
 import Item from './Item';
+import Aux from '../hoc/Aux';
 
 const items = (props) => {
-    console.log(props)
     return (
-        <ul>
+        <Aux>
             {props.registeredItems.map((item) => {
                 return (
                     <Item
@@ -19,7 +19,7 @@ const items = (props) => {
                 )
             })
             }
-        </ul>
+        </Aux>
     )
 }
 
