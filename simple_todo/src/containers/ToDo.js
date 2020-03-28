@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Aux from '../hoc/Aux';
 import NewItem from '../components/NewItem';
 import Items from '../components/Items';
+import classes from '../components/Items.module.css';
 
 class ToDo extends Component {
     state = {
@@ -43,11 +44,13 @@ class ToDo extends Component {
                     addNewItem={this.addNewItemHandler}
                     id={this.state['maxId'] + 1}
                 />
-                <Items
-                    registeredItems={this.state.registeredItems}
-                    deleteItem={this.deleteItemHandler}
-                    checkItem={this.checkItemHandler}
-                />
+                <div className={classes.Items}>
+                    <Items
+                        registeredItems={this.state.registeredItems}
+                        deleteItem={this.deleteItemHandler}
+                        checkItem={this.checkItemHandler}
+                    />
+                </div>
             </Aux>
         );
     }

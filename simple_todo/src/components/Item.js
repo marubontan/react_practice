@@ -1,14 +1,18 @@
 import React from 'react';
 
-import Aux from '../hoc/Aux';
+import classes from './Item.module.css';
 
 const item = (props) => {
     return (
-        <Aux>
-            <li>{props.content}</li>
-            <button onClick={() => {props.deleteItem(props.id)}}>Delete</button>
-            <button onClick={() => {props.checkItem(props.id)}}>Check</button>
-        </Aux>
+        <div className={classes.Item}>
+            <div className={classes.Left}>
+                {props.content}
+            </div>
+            <div className={classes.Right}>
+                <button onClick={() => { props.deleteItem(props.id) }}>Delete</button>
+                <button onClick={() => { props.checkItem(props.id) }}>Check</button>
+            </div>
+        </div>
     )
 }
 
