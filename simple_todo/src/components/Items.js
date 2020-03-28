@@ -4,7 +4,6 @@ import Item from './Item';
 import Aux from '../hoc/Aux';
 
 const items = (props) => {
-    console.log(props)
     return (
         <Aux>
             {props.registeredItems.map((item) => {

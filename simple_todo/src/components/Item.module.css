@@ -9,12 +9,15 @@
     margin-bottom: 50px;
 }
 
-
 .Item .Left{
     display: flex;
     font-size: 40px;
     color: black;
     word-break: break-all;
+}
+
+.Item .Checked{
+    text-decoration: line-through;
 }
 
 .Item .Right{

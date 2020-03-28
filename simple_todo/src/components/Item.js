@@ -3,10 +3,11 @@ import React from 'react';
 import classes from './Item.module.css';
 
 const item = (props) => {
+    const itemStyle = props.checked ? classes.Checked : null;
     return (
-        <div className={classes.Item}>
+        <div className={classes.Item} >
             <div className={classes.Left}>
-                {props.content}
+                <p className={itemStyle}>{props.content}</p>
             </div>
             <div className={classes.Right}>
                 <button onClick={() => { props.deleteItem(props.id) }}>Delete</button>
