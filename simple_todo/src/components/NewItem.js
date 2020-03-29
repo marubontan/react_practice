@@ -6,7 +6,8 @@ class NewItem extends Component {
     submitHandler = (event) => {
         event.preventDefault();
         this.props.addNewItem(this.state);
-
+        this.setState({registeredItem: ''});
+        this.todo.value = '';
     }
 
     changeHandler = (event) => {
@@ -22,7 +23,7 @@ class NewItem extends Component {
     render() {
         return (
             <form onSubmit={this.submitHandler}>
-                <input type='text' onChange={this.changeHandler} />
+                <input ref={(ref) => {this.todo = ref}} type='text' onChange={this.changeHandler} />
                 <button>Add Item</button>
             </form>
         );
